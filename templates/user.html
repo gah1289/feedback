@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form method="POST" class="ms-3">
+<h1 class="display-2">Hello, {{user.first_name}}!</h1>
+<h2 class="display-5">User info:</h2>
+<ul class="list-group list-group-flush mb-3">
+    <li class="list-group-item display-6">name: {{user.first_name}} {{user.last_name}}</li>
+    <li class="list-group-item display-6"> username: {{user.username}}</li>
+    <li class="list-group-item display-6"> email: {{user.email}}</li>
+  </ul>
+
+  <button class="btn btn-danger btn-sm" formaction="/users/{{user.username}}/delete" formmethod="POST">Delete Account</button>
+  <button class="btn btn-light btn-sm" formaction="/users/{{user.username}}/feedback/add" formmethod="GET">Post Feedback</button>
+</form>
+{% endblock %}
